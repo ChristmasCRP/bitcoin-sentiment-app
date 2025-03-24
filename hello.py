@@ -1,0 +1,1 @@
+print("Siema, Git działa!")
