@@ -10,4 +10,5 @@ def get_current_price():
         data = response.json()
         return float(data["price"])
     except (requests.RequestException, ValueError, KeyError):
+        
         return None
