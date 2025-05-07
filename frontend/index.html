@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+ <title>Bitcoin Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BITCOIN</h1>
+            <p id="price">CENA</p>
+
+        </header>
+
+        <section class="main-content">
+            <div class="chart-container">
+                <section class="chart-section">
+                    <canvas id="priceChart" width="400" height="200"></canvas>
+                    <div class="time-buttons">
+                        <button class="time-btn" data-period="1D">1D</button>
+                        <button class="time-btn" data-period="7D">7D</button>
+                        <button class="time-btn" data-period="1M">1M</button>
+                        <button class="time-btn" data-period="3M">3M</button>
+                        <button class="time-btn" data-period="1Y">1Y</button>
+                        <button class="time-btn" data-period="ALL">ALL</button>
+                    </div>
+                </section>
+            </div>
+            
+            <aside class="info-panel">
+                <div class="volume-box">
+                    <h3>WYKRES WOLUMENÓW</h3>
+                    <p>[wykresik benc]</p>
+                </div>
+                <div class="rsi-dominance">
+                    <p>RSI: <span>DUPA</span></p>
+                    <p>DOMINANCE: <span>DUPA</span></p>
+                </div>
+                <div class="market-cap">
+                    <h3>MARKET CAP</h3>
+                    <p>KWOTA</p>
+                </div>
+            </aside>
+        </section>
+        
+        </main>
+
+        <section class="ai-opinion">
+            <h3>AI OPINION</h3>
+            <div class="key-input-row">
+                <input type="text" placeholder="Wpisz klucz..." class="key-input">
+                <button class="submit-button">Prześlij</button>
+            </div>
+        </section>
+
+        <section class="latest-news">
+            <h3>LATEST NEWS</h3>
+            <div class="news-columns">
+                <div class="news-item">Hokus pokus czary mary twoja stara to twój stary</div>
+                
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
