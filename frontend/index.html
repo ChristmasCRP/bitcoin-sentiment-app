@@ -11,8 +11,8 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>BITCOIN</h1>
+        <header class="website-tittle">
+            <h1>DASHBOARD ANALITYKA BITCOINA</h1>
             <p id="price"></p>
 
         </header>
@@ -34,6 +34,9 @@
             <aside class="info-panel">
                 <div class="rsi-dominance">
                     <p>RSI: <p id="rsi-value"></p></p>
+                    
+                </div>
+                <div class="rsi-dominance"> 
                     <p>DOMINACJA BTC: <p id="domiance-value"></p></p>
                 </div>
                 <div class="market-cap">
@@ -47,12 +50,15 @@
 
         <section class="ai-opinion">
             <h3>AI OPINION</h3>
-            <div class="key-input-row">
-                <input type="text" placeholder="Wpisz klucz..." class="key-input">
-                <button class="submit-button">Prześlij</button>
-            </div>
-        </section>
+            <input type="text" id="apiKeyInput" class="key-input" placeholder="Wpisz swój klucz API">
+        <button id="submitButton" class="submit-button">Prześlij</button>
 
+        <div id="warningMessage" class="warning">⚠️ Uwaga, opinia AI nie jest poradą finansową!</div>
+        
+        </section>
+        <section class="ai-opinion">
+        <div id="analysisResult" class="analysis">Analiza AI pojawi się tutaj...</div>
+        </section>
         <section class="latest-news">
             <h3>NEWSY REDDITA</h3>
             <div class="news-columns">

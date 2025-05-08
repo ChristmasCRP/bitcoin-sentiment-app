@@ -80,11 +80,6 @@ function displayTitles(titles) {
 
 document.addEventListener('DOMContentLoaded', fetchRedditTitles);
 
-
-
-
-
-
 const PERIOD_MAP = {
     "1D": { interval: "1h", limit: 24 },
     "7D": { interval: "1h", limit: 168 },
@@ -99,7 +94,7 @@ document.querySelector('.time-buttons').addEventListener('click', (event) => {
         const { interval, limit } = PERIOD_MAP[period] || { interval: "1d", limit: 30 };
 
         console.log(`Pobieram dane: interval=${interval}, limit=${limit}`);
-        updateChart(interval, limit, true);  // Wymuszamy odświeżenie
+        updateChart(interval, limit, true);
     }
 });
 
@@ -151,5 +146,39 @@ async function updateChart(interval, limit, force_refresh = false) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    updateChart('1d', 30, true);  // Wymuszamy odświeżenie na starcie
+    updateChart('1d', 30, true);
+});
+
+
+
+
+document.getElementById("submitButton").addEventListener("click", () => {
+    const apiKey = document.getElementById("apiKeyInput").value;
+    const warningMessage = document.getElementById("warningMessage");
+    const analysisResult = document.getElementById("analysisResult");
+
+    if (!apiKey) {
+        alert("Wpisz klucz API!");
+        return;
+    }
+
+    warningMessage.style.display = "block";
+    analysisResult.textContent = "Oczekiwanie na odpowiedź AI...";
+
+    fetch("http://127.0.0.1:8000/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ api_key: apiKey })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Otrzymana odpowiedź AI:", data);
+        analysisResult.style.display = "block";
+        analysisResult.textContent = `AI mówi: ${data.prediction}`;
+    })
+    .catch(error => {
+        console.error("Błąd:", error);
+        analysisResult.style.display = "block";
+        analysisResult.textContent = "Nie udało się pobrać analizy!";
+    });
 });
