@@ -39,40 +39,44 @@ def get_historical_data(interval: str = "1d", limit: int = 30, force_refresh: bo
     global _cache_today_data, _cache_today_time
 
     now = time.time()
-    extra_data = 14
 
-    if _cache_today_data is not None and not force_refresh and (now - _cache_today_time < _cache_duration):
-        print("Dane zwrócone z cache")
-        return _cache_today_data
+    # Jeśli force_refresh jest True lub cache jest przestarzały, pobierz nowe dane
+    if force_refresh or _cache_today_data is None or (now - _cache_today_time >= _cache_duration):
+        print(f"Pobieram nowe dane z Binance: interval={interval}, limit={limit}")
 
-    try:
-        params = {
-            "symbol": SYMBOL,
-            "interval": interval,
-            "limit": limit + extra_data
-        }
-        
-        response = requests.get(BINANCE_KLINES_URL, params=params)
-        response.raise_for_status()
-        raw_data = response.json()
-        
-        historical_data = []
-        for candle in raw_data:
-            historical_data.append({
-                "open_time": datetime.utcfromtimestamp(candle[0] / 1000).isoformat() + "Z",
-                "open": float(candle[1]),
-                "high": float(candle[2]),
-                "low": float(candle[3]),
-                "close": float(candle[4]),
-                "volume": float(candle[5]),
-                "close_time": datetime.utcfromtimestamp(candle[6] / 1000).isoformat() + "Z"
-            })
-        
-        _cache_today_data = historical_data
-        _cache_today_time = now
+        try:
+            params = {
+                "symbol": SYMBOL,
+                "interval": interval,
+                "limit": min(limit, 1000)
+            }
 
-        return historical_data
+            response = requests.get(BINANCE_KLINES_URL, params=params)
+            response.raise_for_status()
+            raw_data = response.json()
 
-    except (requests.RequestException, ValueError, KeyError) as e:
-        print(f"Błąd podczas pobierania danych historycznych: {e}")
-        return []
+            historical_data = [
+                {
+                    "open_time": datetime.utcfromtimestamp(candle[0] / 1000).isoformat() + "Z",
+                    "open": float(candle[1]),
+                    "high": float(candle[2]),
+                    "low": float(candle[3]),
+                    "close": float(candle[4]),
+                    "volume": float(candle[5]),
+                    "close_time": datetime.utcfromtimestamp(candle[6] / 1000).isoformat() + "Z"
+                }
+                for candle in raw_data
+            ]
+
+            # Aktualizujemy cache
+            _cache_today_data = historical_data
+            _cache_today_time = now
+
+            return historical_data
+
+        except (requests.RequestException, ValueError, KeyError) as e:
+            print(f"Błąd podczas pobierania danych historycznych: {e}")
+            return []
+
+    print("Dane zwrócone z cache")
+    return _cache_today_data

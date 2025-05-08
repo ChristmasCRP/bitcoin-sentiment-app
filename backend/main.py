@@ -11,6 +11,16 @@ from backend.services.coingeco_service import get_bitcoin_market_cap, get_bitcoi
 
 app = FastAPI()
 
+from starlette.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.get("/price")
 def read_price():
     price = get_current_price()
