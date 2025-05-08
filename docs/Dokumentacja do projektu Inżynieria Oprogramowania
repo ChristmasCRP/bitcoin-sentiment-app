@@ -1,0 +1,81 @@
+Dokumentacja do projektu Inżynieria Oprogramowania
+
+Nazwa skrócona
+SentimentApp
+Nazwa pełna
+Bitcoin Sentiment App
+
+Krótki opis ze wskazaniem celów 
+Aplikacja służy do analizy sentymentu rynku Bitcoina (BTC) z wykorzystaniem sztucznej inteligencji. Wykorzystuje dane z giełd kryptowalutowych, wskaźniki analizy technicznej oraz posty z Reddita, aby wygenerować predykcję nastrojów inwestorów. Celem projektu jest dostarczenie użytkownikowi szybkiej, aktualnej i ustrukturyzowanej informacji o potencjalnym kierunku rynku BTC.
+
+Prawa autorskie. 
+Autorzy 
+Adrianna Czyżewska, Kornelia Cysewska, Jakub Danilkiewicz
+Warunki licencyjne do oprogramowania wytworzonego przez grupę
+Projekt udostępniany jest na licencji MIT – użytkownik może kopiować, modyfikować i używać kodu w celach prywatnych oraz komercyjnych pod warunkiem zachowania informacji o oryginalnych autorach.
+
+Specyfikacja wymagań – alternatywnie: a lub b a. 
+My wybraliśmy opcje B
+   b. Historyjki użytkownika (ang. user stories)
+•	Jako użytkownik chcę zobaczyć aktualną cenę BTC, aby śledzić zmiany rynkowe.
+•	Jako użytkownik chcę znać sentyment rynku, aby podjąć decyzję inwestycyjną.
+•	Jako użytkownik chcę analizować dane z Reddita, aby wiedzieć co społeczność myśli o BTC.
+•	Jako użytkownik chcę znać wskaźnik RSI, aby lepiej interpretować sytuację techniczną rynku.
+
+
+
+
+Architektura systemu/oprogramowania 
+
+a. Architektura rozwoju (stos technologiczny + wersje)
+Backend: Python 3.10, 
+requests==2.31.0
+fastapi==0.110.0
+uvicorn==0.29.0
+beautifulsoup4==4.12.3
+pandas==1.5.3
+numpy==1.24.2
+openai>=1.0.0
+ 
+Zewnętrzne API: Binance API, CoinGecko API, Reddit (scraping), OpenAI GPT-3.5
+ 
+Biblioteki: pandas, numpy, requests, beautifulsoup4
+ 
+Inne: Web scraping, cache, REST API
+ 
+b. Narzędzia i technologie wykorzystywane
+FastAPI: budowa i obsługa REST API
+ 
+OpenAI API: analiza sentymentu (GPT-3.5 Turbo)
+ 
+Web scraping (BeautifulSoup): pobieranie postów z Reddita
+ 
+Binance/CoinGecko API: dane rynkowe i fundamentalne
+ 
+Pandas, NumPy: obróbka danych
+ 
+Uvicorn: uruchamianie serwera
+Testy 
+a. Scenariusze testów
+GET /price – zwraca aktualną cenę BTC
+ 
+GET /history – zwraca dane świecowe
+ 
+GET /reddit – zwraca tytuły postów z Reddita
+ 
+GET /analyze/rsi/today – zwraca dzisiejszą wartość RSI
+ 
+GET /market_cap – zwraca kapitalizację BTC
+ 
+GET /dominance – zwraca dominację BTC
+ 
+POST /predict – zwraca analizę sentymentu
+ 
+b. Sprawdzanie wykonania scenariuszy testów
+Sprawdzenie poprawnych kodów odpowiedzi HTTP (np. 200 OK)
+ 
+Weryfikacja struktury zwracanych danych (JSON)
+ 
+Testy poprawności cache (czas ważności, odświeżanie)
+ 
+Testowanie obsługi błędów (np. brak danych z API)
