@@ -3,10 +3,8 @@ from datetime import datetime
 from typing import List, Dict, Any
 import time
 
-# URL do pobierania aktualnej ceny BTC/USDT
 BINANCE_PRICE_URL = "https://api.binance.com/api/v3/ticker/price"
 
-# URL do pobierania danych historycznych
 BINANCE_KLINES_URL = "https://api.binance.com/api/v3/klines"
 SYMBOL = "BTCUSDT"
 

@@ -7,7 +7,6 @@ _cached_data = None
 _cached_time = 0
 _cache_duration = 600
 
-# Słowa kluczowe do filtrowania
 KEYWORDS = ["bitcoin", "btc", "cryptocurrency", "blockchain"]
 
 def get_reddit_titles(subreddit="Bitcoin", limit=10):
@@ -27,11 +26,9 @@ def get_reddit_titles(subreddit="Bitcoin", limit=10):
             if title:
                 title_text = title.get_text(strip=True)
                 
-                # Sprawdzamy czy tytuł zawiera przynajmniej jedno z słów kluczowych
                 if any(re.search(rf"\b{kw}\b", title_text, re.IGNORECASE) for kw in KEYWORDS):
                     titles.append(title_text)
                 
-                # Zatrzymujemy się, gdy mamy odpowiednią ilość pasujących postów
                 if len(titles) >= limit:
                     break
 

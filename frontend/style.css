@@ -10,9 +10,6 @@
     font-family: 'Oswald', sans-serif;
 }
 
-
-
-  
   body {
     background-color: #000;
     color: #f5f2f2;
@@ -25,7 +22,6 @@
     
   }
   
-  /* NAGŁÓWEK */
   header {
     display: flex;
     justify-content: space-between;
@@ -45,7 +41,6 @@
     color:#15f315
   }
   
-  /* SEKCJA GÓWNA */
   .main-content {
     display: flex;
     justify-content: space-between;
@@ -53,7 +48,6 @@
     border-radius: 10px
   }
   
-  /* WYKRES */
   .chart-section {
     width: 70%;
     
@@ -90,7 +84,6 @@
     background-color: #555;
 }
   
-  /* INFO RSI MARKET CAP ITD */
   .info-panel {
     width: 25%;
   }
@@ -113,7 +106,6 @@
     margin-bottom: 10px;
   }
   
-  /* AI */
   .ai-opinion {
     background-color: #222;
     padding: 20px;
@@ -144,10 +136,9 @@
   }
   .submit-button:hover {
     background: linear-gradient(135deg, #3e3e3e, #50504f);
-    transform: scale(1.05); /* Lekko powiększa przycisk */
+    transform: scale(1.05);
 }
   
-  /* REDDITTTTTT */
   .latest-news {
     background-color: #222;
     padding: 20px;

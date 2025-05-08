@@ -7,7 +7,7 @@ def get_bitcoin_market_cap() -> float:
         coin_data = response.json()
         return coin_data["market_data"]["market_cap"]["usd"]
     except Exception as e:
-        print(f"❌ Błąd podczas pobierania market cap: {e}")
+        print(f"Błąd podczas pobierania market cap: {e}")
         return 0.0
 
 def get_bitcoin_dominance() -> float:
@@ -17,5 +17,5 @@ def get_bitcoin_dominance() -> float:
         data = response.json()
         return data["data"]["market_cap_percentage"]["btc"]
     except Exception as e:
-        print(f"❌ Błąd podczas pobierania dominacji: {e}")
+        print(f"Błąd podczas pobierania dominacji: {e}")
         return 0.0

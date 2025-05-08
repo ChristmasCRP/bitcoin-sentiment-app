@@ -1,10 +1,3 @@
-
-
-
-
-
-
-//CENA BITCOINA
 async function fetchPrice() {
     try {
         const response = await fetch('https://blablabla.blablabla/price');
@@ -22,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchPrice();
 });
 
-//wykres z ceną historyczną
 async function fetchHistoricalData(period) {
     try {
         const response = await fetch(`https://blablabla.blablabla/history?period=${period}`);
@@ -45,7 +37,7 @@ async function updateChart(period) {
     const prices = historicalData.map(item => item.price);
 
     if (window.priceChart) {
-        window.priceChart.destroy(); // usuwa stary wykres przed zrobieniem nowego
+        window.priceChart.destroy();
     }
 
     const ctx = document.getElementById('priceChart').getContext('2d');
@@ -71,7 +63,6 @@ async function updateChart(period) {
     });
 }
 
-//  kliknięcia na dowolny przycisk 
 document.querySelector('.time-buttons').addEventListener('click', (event) => {
     if (event.target.classList.contains('time-btn')) {
         const period = event.target.getAttribute('data-period');
@@ -79,12 +70,8 @@ document.querySelector('.time-buttons').addEventListener('click', (event) => {
     }
 });
 
-// domyślny zakres
 document.addEventListener('DOMContentLoaded', () => updateChart('1D'));
 
-
-
-//REDDITT
 async function fetchRedditTitles() {
     try {
         const response = await fetch('https://blablabla.blablabla/reddit');
@@ -100,7 +87,7 @@ async function fetchRedditTitles() {
 
 function displayTitles(titles) {
     const titlesList = document.getElementById('reddit-titles');
-    titlesList.innerHTML = ""; // czyści stare wpisy
+    titlesList.innerHTML = "";
 
     titles.forEach(title => {
         const li = document.createElement('li');
@@ -109,11 +96,8 @@ function displayTitles(titles) {
     });
 }
 
-// Pobiera nagłówki po załadowaniu strony
 document.addEventListener('DOMContentLoaded', fetchRedditTitles);
 
-
-//RSI
 async function fetchTodayRSI() {
     try {
         const response = await fetch('https://blablabla.blablabla/analyze/rsi/today');
@@ -134,11 +118,8 @@ async function fetchTodayRSI() {
     }
 }
 
-// Pobierana RSI po załadowaniu strony
 document.addEventListener('DOMContentLoaded', fetchTodayRSI);
 
-
-//MARKET CAP 
 async function fetchMarketCap() {
     try {
         const response = await fetch('https://blablabla.blablabla/market_cap');
@@ -159,11 +140,8 @@ async function fetchMarketCap() {
     }
 }
 
-// Pobiera Market Cap po załadowaniu strony
 document.addEventListener('DOMContentLoaded', fetchMarketCap);
 
-
-//DOMINANCE 
 async function fetchDominance() {
     try {
         const response = await fetch('https://blablabla.blablabla/dominance');
@@ -184,7 +162,6 @@ async function fetchDominance() {
     }
 }
 
-// Pobiera dominance po załadowaniu strony
 document.addEventListener('DOMContentLoaded', fetchDominance);
 
 

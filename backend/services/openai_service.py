@@ -22,7 +22,8 @@ def make_prediction(api_key: str, price: float, rsi: float, dominance: float, ma
         - Ostatnie tytuły z Reddita: {', '.join(reddit_titles)}.
         - Historia cen Bitcoina (7 dni): {', '.join(history)}.
 
-        Napisz jedno krótkie zdanie podsumowujące sentyment rynkowy, bez użycia słów 'kupuj' ani 'sprzedaj'. Nie udzielaj porady inwestycyjnej.
+        Napisz jedno krótkie zdanie podsumowujące sentyment rynkowy, bez użycia słów 'kupuj' ani 'sprzedaj'. Nie udzielaj porady inwestycyjnej. 
+        Dopisz do tego obecne dane rynkowe, jaka jest cena, rsi, dominacja, kapitalizacja
         """
 
         print("Wysyłam zapytanie do OpenAI...")
@@ -33,8 +34,8 @@ def make_prediction(api_key: str, price: float, rsi: float, dominance: float, ma
                 {"role": "system", "content": "You are a financial analyst specialized in cryptocurrency."},
                 {"role": "user", "content": prompt}
             ],
-            max_tokens=100,
-            temperature=0.3
+            max_tokens=200,
+            temperature=0.1
         )
 
         print("Odpowiedź z OpenAI otrzymana...")
