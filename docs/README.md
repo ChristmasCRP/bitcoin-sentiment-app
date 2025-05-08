@@ -4,15 +4,36 @@ Bitcoin Sentiment App to aplikacja webowa, która analizuje sentyment rynku kryp
 Celem aplikacji jest dostarczenie użytkownikowi szybkich i przystępnych informacji o rynku BTC bez podejmowania decyzji inwestycyjnych.
 
 2. Specyfikacja wymagań
-  2.1 Wymagania funkcjonalne i niefunkcjonalne
-  ID	Nazwa	Opis wymagania	Typ	Priorytet
-  F1	Pobieranie danych rynkowych	Aplikacja powinna automatycznie pobierać dane rynkowe z Binance i CoinGecko w czasie rzeczywistym.	Funkcjonalne	Wysoki
-  F2	Wyświetlanie wskaźników	Użytkownik widzi aktualną cenę BTC, RSI oraz kapitalizację rynku.	Funkcjonalne	Wysoki
-  F3	Analiza sentymentu	Użytkownik może wysłać dane rynkowe do OpenAI, aby uzyskać analizę sentymentu rynku BTC.	Funkcjonalne	Wysoki
-  F4	Pobieranie tytułów z Reddita	Aplikacja powinna pobierać tytuły postów z Reddita i wyświetlać je w formie listy.	Funkcjonalne	Średni
-  NF1	Intuicyjny interfejs	Interfejs użytkownika musi być prosty i przyjazny w obsłudze.	Niefunkcjonalne	Średni
-  NF2	Aktualizacja danych	Dane rynkowe powinny być odświeżane w tle, bez przeładowania strony.	Niefunkcjonalne	Średni
-  NF3	Responsywność	Aplikacja musi działać poprawnie na urządzeniach mobilnych.	Niefunkcjonalne	Średni
+ Funkcjonalne:
+  F1 - Pobieranie danych rynkowych:
+  Aplikacja powinna automatycznie pobierać dane rynkowe z Binance i CoinGecko w czasie rzeczywistym.
+  Priorytet: Wysoki
+
+  F2 - Wyświetlanie wskaźników:
+  Użytkownik widzi aktualną cenę BTC, RSI oraz kapitalizację rynku.
+  Priorytet: Wysoki
+
+  F3 - Analiza sentymentu:
+  Użytkownik może wysłać dane rynkowe do OpenAI, aby uzyskać analizę sentymentu rynku BTC.
+  Priorytet: Wysoki
+
+  F4 - Pobieranie tytułów z Reddita:
+  Aplikacja powinna pobierać tytuły postów z Reddita i wyświetlać je w formie listy.
+  Priorytet: Średni
+
+
+  Niefunkcjonalne:
+  NF1 - Intuicyjny interfejs:
+  Interfejs użytkownika musi być prosty i przyjazny w obsłudze.
+  Priorytet: Średni
+
+  NF2 - Obsługa błędów:
+  Aplikacja obsługuje błędy, takie jak brak odpowiedzi z API, nieprawidłowy klucz API OpenAI lub brak danych.
+  Priorytet: Wysoki
+
+  NF3 - Obsługa cache:
+  Aplikacja wykorzystuje cache do przechowywania danych historycznych, aby ograniczyć liczbę zapytań do zewnętrznych API.
+  Priorytet: Średni
 
 3. Architektura i stos technologiczny
   3.1 Architektura uruchomieniowa (run-time)
@@ -89,7 +110,7 @@ Frontend:
   Wszystkie dane są pobierane w czasie rzeczywistym i mogą się zmieniać dynamicznie.
 
 6. Informacja prawna dotycząca projektu Bitcoin Sentiment App:
-  Projekt Bitcoin Sentiment App został stworzony w celach edukacyjnych przez zespół projektowy w ramach zajęć akademickich. Informacje generowane przez aplikację mają charakter wyłącznie informacyjny i nie stanowią rekomendacji inwestycyjnych w rozumieniu Rozporządzenia   Ministra Finansów z dnia 19 października 2005 roku w sprawie informacji stanowiących rekomendacje dotyczące instrumentów finansowych, ich emiterów lub wystawców (Dz. U. z 2005 roku, Nr 206, poz. 1715).
+    Projekt Bitcoin Sentiment App został stworzony w celach edukacyjnych przez zespół projektowy w ramach zajęć akademickich. Informacje generowane przez aplikację mają charakter wyłącznie informacyjny i nie stanowią           rekomendacji inwestycyjnych w rozumieniu Rozporządzenia   Ministra Finansów z dnia 19 października 2005 roku w sprawie informacji stanowiących rekomendacje dotyczące instrumentów finansowych, ich emiterów lub               wystawców (Dz. U. z 2005 roku, Nr 206, poz. 1715).
 
-  Aplikacja analizuje dane rynkowe i generuje analizy sentymentu przy użyciu modeli sztucznej inteligencji (OpenAI). Wyniki analiz nie powinny być traktowane jako porady inwestycyjne i nie mogą być podstawą do podejmowania decyzji finansowych. Autorzy projektu nie         ponoszą   odpowiedzialności za decyzje inwestycyjne podjęte na podstawie wyników generowanych przez aplikację. Każda decyzja inwestycyjna podejmowana jest na wyłączną odpowiedzialność użytkownika.
+  Aplikacja analizuje dane rynkowe i generuje analizy sentymentu przy użyciu modeli sztucznej inteligencji (OpenAI). Wyniki analiz nie powinny być traktowane jako porady inwestycyjne i nie mogą być podstawą do                 podejmowania decyzji finansowych. Autorzy projektu nie         ponoszą   odpowiedzialności za decyzje inwestycyjne podjęte na podstawie wyników generowanych przez aplikację. Każda decyzja inwestycyjna podejmowana jest         na wyłączną odpowiedzialność użytkownika.
 
