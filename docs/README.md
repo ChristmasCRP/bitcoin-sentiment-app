@@ -1,2 +1,2 @@
 # bitcoin-sentiment-app
-Aplikacja do analizy sentymentu rynku BTC z użyciem AI
+Aplikacja służy do analizy sentymentu rynku Bitcoina (BTC) z wykorzystaniem sztucznej inteligencji. Wykorzystuje dane z giełd kryptowalutowych, wskaźniki analizy technicznej oraz posty z Reddita, aby wygenerować predykcję nastrojów inwestorów. Celem projektu jest dostarczenie użytkownikowi szybkiej, aktualnej i ustrukturyzowanej informacji o potencjalnym kierunku rynku BTC.
