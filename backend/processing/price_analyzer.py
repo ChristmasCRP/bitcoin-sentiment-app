@@ -17,15 +17,12 @@ def calculate_rsi(data: List[Dict], period: int = 14) -> List[float]:
     avg_gain = pd.Series(gain).rolling(window=period, min_periods=1).mean()
     avg_loss = pd.Series(loss).rolling(window=period, min_periods=1).mean()
 
-    # Obliczamy RS i RSI
     rs = avg_gain / avg_loss
     rsi = 100 - (100 / (1 + rs))
 
-    # Zamieniamy wartości NaN na None zamiast na 0 lub 100
     rsi = rsi.replace([np.inf, -np.inf], np.nan).tolist()
     rsi = [None if np.isnan(x) else x for x in rsi]
 
-    # Wstawianie None na początkowych pozycjach, gdzie dane są niepełne
     rsi = [None] * (len(data) - len(rsi)) + rsi
 
     return rsi

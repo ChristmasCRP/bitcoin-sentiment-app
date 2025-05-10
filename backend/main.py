@@ -86,7 +86,6 @@ def predict(request: PredictionRequest):
         history_data = get_historical_data(interval="1d", limit=7)
         history = [str(day["close"]) for day in history_data[-7:]]
 
-
         prediction = make_prediction(
             request.api_key,
             price,
@@ -101,4 +100,3 @@ def predict(request: PredictionRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-

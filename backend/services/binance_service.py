@@ -40,7 +40,6 @@ def get_historical_data(interval: str = "1d", limit: int = 30, force_refresh: bo
 
     now = time.time()
 
-    # Jeśli force_refresh jest True lub cache jest przestarzały, pobierz nowe dane
     if force_refresh or _cache_today_data is None or (now - _cache_today_time >= _cache_duration):
         print(f"Pobieram nowe dane z Binance: interval={interval}, limit={limit}")
 
@@ -68,7 +67,6 @@ def get_historical_data(interval: str = "1d", limit: int = 30, force_refresh: bo
                 for candle in raw_data
             ]
 
-            # Aktualizujemy cache
             _cache_today_data = historical_data
             _cache_today_time = now
 
