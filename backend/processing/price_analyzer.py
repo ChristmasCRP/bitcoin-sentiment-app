@@ -27,7 +27,6 @@ def calculate_rsi(data: List[Dict], period: int = 14) -> List[float]:
 
     return rsi
 
-
 def calculate_today_rsi(data: List[Dict], period: int = 14) -> float:
     rsi_values = calculate_rsi(data, period)
     return rsi_values[-1] if rsi_values else None

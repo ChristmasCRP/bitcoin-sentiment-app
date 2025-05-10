@@ -130,7 +130,7 @@ async function updateChart(interval, limit, force_refresh = false) {
             datasets: [{
                 label: `Cena BTCUSDT (${interval})`,
                 data: prices,
-                borderColor: 'rgb(255, 255, 255)',
+                borderColor: 'rgb(0, 255, 115)',
                 borderWidth: 2,
                 fill: false
             }]
