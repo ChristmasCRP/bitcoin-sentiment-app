@@ -60,12 +60,10 @@ Backend:
   source venv/bin/activate
   pip install -r requirements.txt
   uvicorn main:app --reload
-  Dostępne pod http://127.0.0.1:8000.
 
 Frontend:
   cd frontend
   python -m http.server
-  Otwiera się w przeglądarce pod http://127.0.0.1:8000 lub na innym porcie wskazanym przez serwer.
 
 3.5 Procedura rozwoju
   Wszelkie zmiany w kodzie frontendowym i backendowym muszą być wersjonowane w GitHubie.
